@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Public API routes
 
-router.get("/upcomming-events", async (req, res) => {
+router.get("/upcoming-events", async (req, res) => {
   try {
     const data = await db_apis.read_upcomming_events(req, res);
     res.json(data);
