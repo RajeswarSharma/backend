@@ -17,24 +17,22 @@ const passport = require("passport");
 // const csrf = require("csurf");
 // const hbs = require("hbs");
 //-----------------------------------------------END OF
-//IMPORTS---------------------------------------//
+// IMPORTS---------------------------------------//
 
 //-------------------------------------------DATABASE CONNECTION
-//SETUP----------------------------------------//
+// SETUP----------------------------------------//
 // const csrfProtection = csrf({ cookie: true });
 const app = express();
 const PORT = process.env.PORT || 3001;
 // Demo database: Connect to a actual database before deployment
 mongoose
-  .connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Listening at PORT: ${PORT}`);
+    .connect(process.env.DATABASE_URL, {
+      useNewUrlParser : true,
+      useUnifiedTopology : true,
+    })
+    .then(() => {
+      app.listen(PORT, () => { console.log(`Listening at PORT: ${PORT}`); });
     });
-  });
 app.set("trust proxy", 1);
 // Whitelisting requests
 const whitelist = [
@@ -51,41 +49,37 @@ const corsOptions = {
     }
   },
 };
-app.use(
-  cors({
-    // The following address is for testing only, change it accordingly in
-    // production
-    origin: corsOptions,
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
-);
+app.use(cors({
+  // The following address is for testing only, change it accordingly in
+  // production
+  origin : corsOptions,
+  optionsSuccessStatus : 200,
+  credentials : true,
+}));
 
 //----------------------------------------END OF DATABASE CONNECTION
-//SETUP----------------------------------------//
+// SETUP----------------------------------------//
 
 //---------------------------------------------------MIDDLEWARES-------------------------------------------------//
 
-app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [process.env.COOKIE_SESSION_KEY],
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-  })
-);
+app.use(cookieSession({
+  maxAge : 24 * 60 * 60 * 1000,
+  keys : [ process.env.COOKIE_SESSION_KEY ],
+  httpOnly : true,
+  secure : true,
+  sameSite : "none",
+}));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "./templates/pages"));
 app.set("view engine", "hbs");
 app.disable("x-powered-by");
 //------------------------------------------------END OF
-//MIDDLEWARES--------------------------------------------//
+// MIDDLEWARES--------------------------------------------//
 
 //-----------------------------------------------------ROUTINGS-------------------------------------------------//
 app.use("/api/", api_routes);
@@ -95,8 +89,7 @@ app.use("/admin/", admin_routes);
 app.use("/contact-us", contactUsRoutes);
 app.use("/forget", forgetPasswordRoutes);
 app.use("/projects/", projectRoutes);
-app.get("/form-token", (req, res) => {
-  res.json({ formToken: "sample token" });
-});
+app.get("/form-token",
+        (req, res) => { res.json({formToken : "sample token"}); });
 //---------------------------------------------------END OF
-//ROUTINGS--------------------------------------------//
+// ROUTINGS--------------------------------------------//

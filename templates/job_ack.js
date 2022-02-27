@@ -1,12 +1,12 @@
 "use strict";
 exports.getTemplate = (userEmail, role, name) => {
   const message = {
-    from: process.env.EMAIL_SENDER,
-    to: userEmail,
-    subject: "CU-Chapter - Job application",
-    text: `
+    from : process.env.EMAIL_SENDER,
+    to : userEmail,
+    subject : "CU-Chapter - Job application",
+    text : `
     We have recived you application`,
-    html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    html : `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -265,7 +265,8 @@ exports.getTemplate = (userEmail, role, name) => {
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 40px; padding-left: 40px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:40px;padding-bottom:10px;padding-left:40px;">
 												<div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 14px;">
-													<p style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 30px; color: #2b303a;"><strong>Hello ${name}!</strong></span></p>
+													<p style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 30px; color: #2b303a;"><strong>Hello ${
+        name}!</strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -340,7 +341,8 @@ exports.getTemplate = (userEmail, role, name) => {
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 5px; font-family: Tahoma, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:5px;padding-left:10px;">
 												<div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 14px;">
-													<p style="margin: 0; font-size: 18px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 22px; margin-top: 0; margin-bottom: 0;"><span style="color: #2b303a; font-size: 18px;">This letter is to inform you that we have received your application for the role <strong>${role}</strong>. We appreciate your interest in <strong>CUCODERS</strong>.
+													<p style="margin: 0; font-size: 18px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 22px; margin-top: 0; margin-bottom: 0;"><span style="color: #2b303a; font-size: 18px;">This letter is to inform you that we have received your application for the role <strong>${
+        role}</strong>. We appreciate your interest in <strong>CUCODERS</strong>.
 <br>
 We are procesing your application. If you are selected for an interview, our human resources department will be in contact with you soon.</p>
 					</span></p>

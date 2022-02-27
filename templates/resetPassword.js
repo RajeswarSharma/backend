@@ -1,12 +1,13 @@
 "use strict";
 exports.getTemplate = (userEmail, token, name, domain) => {
   const message = {
-    from: process.env.EMAIL_SENDER,
-    to: userEmail,
-    subject: "Password Reset",
-    text: `
-    Hi ${name}, Did you Forget your password? Here is the reset link https://${domain}/forget/reset?token=${token}`,
-    html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    from : process.env.EMAIL_SENDER,
+    to : userEmail,
+    subject : "Password Reset",
+    text : `
+    Hi ${name}, Did you Forget your password? Here is the reset link https://${
+        domain}/forget/reset?token=${token}`,
+    html : `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	
 	<head>
@@ -195,7 +196,11 @@ exports.getTemplate = (userEmail, token, name, domain) => {
 												</div>
 												<!--[if mso]></td></tr></table><![endif]-->
 												<div class="button-container" align="center" style="padding-top:20px;padding-right:15px;padding-bottom:20px;padding-left:15px;">
-													<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://${domain}/forget/reset?token=${token}" style="height:31.5pt;width:147.75pt;v-text-anchor:middle;" arcsize="58%" stroke="false" fillcolor="#ffffff"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#091548; font-family:sans-serif; font-size:15px"><![endif]--><a href="https://${domain}/forget/reset?token=${token}" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #091548; background-color: #ffffff; border-radius: 24px; -webkit-border-radius: 24px; -moz-border-radius: 24px; width: auto; width: auto; border-top: 1px solid #ffffff; border-right: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; padding-top: 5px; padding-bottom: 5px; font-family: Varela Round, Trebuchet MS, Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:25px;padding-right:25px;font-size:15px;display:inline-block;letter-spacing:undefined;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;"><strong>RESET MY PASSWORD</strong></span></span></span></a>
+													<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 20px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://${
+        domain}/forget/reset?token=${
+        token}" style="height:31.5pt;width:147.75pt;v-text-anchor:middle;" arcsize="58%" stroke="false" fillcolor="#ffffff"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#091548; font-family:sans-serif; font-size:15px"><![endif]--><a href="https://${
+        domain}/forget/reset?token=${
+        token}" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #091548; background-color: #ffffff; border-radius: 24px; -webkit-border-radius: 24px; -moz-border-radius: 24px; width: auto; width: auto; border-top: 1px solid #ffffff; border-right: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; padding-top: 5px; padding-bottom: 5px; font-family: Varela Round, Trebuchet MS, Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:25px;padding-right:25px;font-size:15px;display:inline-block;letter-spacing:undefined;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;"><strong>RESET MY PASSWORD</strong></span></span></span></a>
 													<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 												</div>
 												<table class="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" role="presentation" valign="top">
