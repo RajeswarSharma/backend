@@ -5,7 +5,9 @@ const db_apis = require("../controllers/event_db_apis");
 const jwt = require("jsonwebtoken");
 const cloudinaryConfig = require("../configs/cloudinary_config").v2;
 const { uploadImage } = require("../configs/multer_config");
+const { uploadDoc } = require("../configs/multer_config");
 const teamDBApis = require("../controllers/teamDBApis");
+const resourcesDBApis = require("../controllers/resources_db_apis");
 //----------------------------------END of
 //IMPORTS------------------------------------//
 const router = express.Router();
@@ -74,6 +76,23 @@ router.get("/add-team", (req, res) => {
     res.redirect("./login");
   }
 });
+
+/* Render the resources submission form */
+router.get("/add-resources", (req, res) => {
+  if (req.cookies.auth) {
+    jwt.verify(req.cookies.auth, process.env.SECRET, (err, decoded) => {
+      if (err) {
+        res.status(500).json({ message: "Oops! Something went wrong" });
+      } else if (decoded === process.env.ADMIN_NAME) {
+        res.render("add-resources");
+      } else {
+        res.redirect("./login");
+      }
+    });
+  } else {
+    res.redirect("./login");
+  }
+})
 /* Handle team submit form request*/
 router.post("/add-team", uploadImage.single("profileImage"), (req, res) => {
   if (req.cookies.auth) {
@@ -90,6 +109,30 @@ router.post("/add-team", uploadImage.single("profileImage"), (req, res) => {
           await teamDBApis.addTeam(req, res, secure_url, public_id);
         } catch (error) {
           res.render("error", { message: "Profile can't be added" });
+        }
+      } else {
+        res.redirect("./login");
+      }
+    });
+  }
+});
+
+/* Handle resources submit form request*/
+router.post("/add-resources", uploadDoc.single("resources"), uploadImage.single("imageSrc"), (req, res) => {
+  if (req.cookies.auth) {
+    jwt.verify(req.cookies.auth, process.env.SECRET, async (err, decode) => {
+      if (err) {
+        res.render("error", { message: "Something went wrong" });
+      } else if (decode === process.env.ADMIN_NAME) {
+        try {
+          const result = await cloudinaryConfig.uploader.upload(req.file.path, {
+            folder: "resources",
+            use_filename: true,
+          });
+          const { secure_url, public_id } = result;
+          await resourcesDBApis.insert_resource(req, res, secure_url, public_id);
+        } catch (error) {
+          res.render("error", { message: "Resources can't be added" });
         }
       } else {
         res.redirect("./login");
