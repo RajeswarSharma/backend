@@ -270,7 +270,7 @@ exports.getTemplate = (userEmail, role, name) => {
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 40px; padding-left: 40px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
-											
+
 											<!--[if mso]></td></tr></table><![endif]-->
 											<table class="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" role="presentation" valign="top">
 												<tbody>
@@ -349,7 +349,7 @@ We are procesing your application. If you are selected for an interview, our hum
 											<!--[if mso]></td></tr></table><![endif]-->
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 32px; font-family: Tahoma, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:0px;padding-right:0px;padding-bottom:32px;padding-left:0px;">
-								
+
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<!--[if (!mso)&(!IE)]><!-->

@@ -7,7 +7,7 @@ exports.getTemplate = (userEmail, name) => {
     text: `Dear ${name},\n\nThank you for trusting us. We will get back to you soon.\n\nRegards,\nTeam`,
     html: `<!DOCTYPE html>
         <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-        
+
         <head>
             <title></title>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -17,46 +17,46 @@ exports.getTemplate = (userEmail, name) => {
                 * {
                     box-sizing: border-box;
                 }
-        
+
                 body {
                     margin: 0;
                     padding: 0;
                 }
-        
+
                 a[x-apple-data-detectors] {
                     color: inherit !important;
                     text-decoration: inherit !important;
                 }
-        
+
                 #MessageViewBody a {
                     color: inherit;
                     text-decoration: none;
                 }
-        
+
                 p {
                     line-height: inherit
                 }
-        
+
                 @media (max-width:690px) {
-        
+
                     .fullMobileWidth,
                     .row-content {
                         width: 100% !important;
                     }
-        
+
                     .image_block img.big {
                         width: auto !important;
                     }
-        
+
                     .menu-checkbox[type=checkbox]~.menu-links {
                         display: none !important;
                         padding: 5px 0;
                     }
-        
+
                     .menu-checkbox[type=checkbox]:checked~.menu-trigger .menu-open {
                         display: none !important;
                     }
-        
+
                     .menu-checkbox[type=checkbox]:checked~.menu-links,
                     .menu-checkbox[type=checkbox]~.menu-trigger {
                         display: block !important;
@@ -64,27 +64,27 @@ exports.getTemplate = (userEmail, name) => {
                         max-height: none !important;
                         font-size: inherit !important;
                     }
-        
+
                     .menu-checkbox[type=checkbox]~.menu-links>a,
                     .menu-checkbox[type=checkbox]~.menu-links>span.label {
                         display: block !important;
                         text-align: center;
                     }
-        
+
                     .menu-checkbox[type=checkbox]:checked~.menu-trigger .menu-close {
                         display: block !important;
                     }
-        
+
                     .column .border,
                     .mobile_hide {
                         display: none;
                     }
-        
+
                     .stack .column {
                         width: 100%;
                         display: block;
                     }
-        
+
                     .mobile_hide {
                         min-height: 0;
                         max-height: 0;
@@ -93,18 +93,18 @@ exports.getTemplate = (userEmail, name) => {
                         font-size: 0px;
                     }
                 }
-        
+
                 menu1g19bk:checked~.menu-links {
                     background-color: #5855bd !important;
                 }
-        
+
                 menu1g19bk:checked~.menu-links a,
                 menu1g19bk:checked~.menu-links span {
                     color: #ffffff !important;
                 }
             </style>
         </head>
-        
+
         <body style="background-color: #f9f9f9; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
             <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f9f9f9;">
                 <tbody>
@@ -636,7 +636,7 @@ exports.getTemplate = (userEmail, name) => {
                 </tbody>
             </table><!-- End -->
         </body>
-        
+
         </html>`,
   };
   return message;
