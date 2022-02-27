@@ -1,11 +1,11 @@
 "use strict";
-const  sanitize  = require("mongo-sanitize");
+const sanitize = require("mongo-sanitize");
 const Event = require("../models/events");
 //------------------------------------------------END OF
-//IMPORTS----------------------------//
+// IMPORTS----------------------------//
 
 //-----------------------------------------------EVENT DATABASE
-//APIs--------------------------//
+// APIs--------------------------//
 exports.insert_event = async (req, imageURL, public_id) => {
   try {
     const tempData = req.body;
@@ -64,4 +64,4 @@ exports.read_past_events = async () => {
   }
 };
 //----------------------------------END OF EVENT DATABASE
-//APIs----------------------------------------//
+// APIs----------------------------------------//

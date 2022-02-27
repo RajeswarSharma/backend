@@ -1,7 +1,7 @@
 "use strict";
 const { check } = require("express-validator");
 //--------------------------------END OF
-//IMPORTS---------------------------------------//
+// IMPORTS---------------------------------------//
 
 // validation rules for contact forms
 exports.contactForms = [
@@ -42,4 +42,21 @@ exports.signupform = [
     .matches(/^[a-zA-Z*$]/)
     .withMessage("Only characters with white space are allowed"),
   check("password").notEmpty().withMessage("Password should not be empty"),
+];
+
+exports.projectForms = [
+  check("name")
+    .trim()
+    .notEmpty()
+    .withMessage("Name is required")
+    .matches(/^[a-zA-Z*$]/)
+    .withMessage("Only characters with white space are allowed"),
+  check("email")
+    .trim()
+    .notEmpty()
+    .withMessage("Email address is required")
+    .normalizeEmail()
+    .isEmail()
+    .withMessage("Invalid Email address"),
+  check("details").trim().notEmpty().withMessage("Details is required"),
 ];

@@ -5,12 +5,14 @@ const db_apis = require("../controllers/event_db_apis");
 const jwt = require("jsonwebtoken");
 const cloudinaryConfig = require("../configs/cloudinary_config").v2;
 const { uploadImage } = require("../configs/multer_config");
+const { uploadDoc } = require("../configs/multer_config");
 const teamDBApis = require("../controllers/teamDBApis");
+const resourcesDBApis = require("../controllers/resources_db_apis");
 //----------------------------------END of
-//IMPORTS------------------------------------//
+// IMPORTS------------------------------------//
 const router = express.Router();
 //-------------------------------------ADMIN
-//ROUTES----------------------------------//
+// ROUTES----------------------------------//
 // sends form to add event
 
 router.get("/add-events", (req, res) => {
@@ -33,7 +35,7 @@ router.post("/add-events", uploadImage.single("cover"), (req, res) => {
   if (req.cookies.auth) {
     jwt.verify(req.cookies.auth, process.env.SECRET, async (err, decoded) => {
       if (err) {
-        //res.status(500).json({ message: "Opps! Something went wrong" });
+        // res.status(500).json({ message: "Opps! Something went wrong" });
         res.render("error", {
           message: "Opps! Something went wrong, can't verify the Admin",
         });
@@ -45,7 +47,7 @@ router.post("/add-events", uploadImage.single("cover"), (req, res) => {
           });
           const { secure_url, public_id } = result;
           await db_apis.insert_event(req, secure_url, public_id);
-          //res.status(200).send("uploaded");
+          // res.status(200).send("uploaded");
           res.render("./add-events", { message: "Event added" });
         } catch (error) {
           res.status(403).send(error.message);
@@ -66,6 +68,23 @@ router.get("/add-team", (req, res) => {
         res.status(500).json({ message: "Opps!Something went wrong" });
       } else if (decoded === process.env.ADMIN_NAME) {
         res.render("add-team");
+      } else {
+        res.redirect("./login");
+      }
+    });
+  } else {
+    res.redirect("./login");
+  }
+});
+
+/* Render the resources submission form */
+router.get("/add-resources", (req, res) => {
+  if (req.cookies.auth) {
+    jwt.verify(req.cookies.auth, process.env.SECRET, (err, decoded) => {
+      if (err) {
+        res.status(500).json({ message: "Oops! Something went wrong" });
+      } else if (decoded === process.env.ADMIN_NAME) {
+        res.render("add-resources");
       } else {
         res.redirect("./login");
       }
@@ -98,6 +117,43 @@ router.post("/add-team", uploadImage.single("profileImage"), (req, res) => {
   }
 });
 
+/* Handle resources submit form request*/
+router.post(
+  "/add-resources",
+  uploadDoc.single("resources"),
+  uploadImage.single("imageSrc"),
+  (req, res) => {
+    if (req.cookies.auth) {
+      jwt.verify(req.cookies.auth, process.env.SECRET, async (err, decode) => {
+        if (err) {
+          res.render("error", { message: "Something went wrong" });
+        } else if (decode === process.env.ADMIN_NAME) {
+          try {
+            const result = await cloudinaryConfig.uploader.upload(
+              req.file.path,
+              {
+                folder: "resources",
+                use_filename: true,
+              }
+            );
+            const { secure_url, public_id } = result;
+            await resourcesDBApis.insert_resource(
+              req,
+              res,
+              secure_url,
+              public_id
+            );
+          } catch (error) {
+            res.render("error", { message: "Resources can't be added" });
+          }
+        } else {
+          res.redirect("./login");
+        }
+      });
+    }
+  }
+);
+
 // sends admin login form
 router.get("/login", (req, res) => {
   if (req.cookies.auth) {
@@ -124,5 +180,5 @@ router.get("/logout", (req, res) => {
   res.redirect("./login");
 });
 //---------------------------------------------END OF
-//ROUTES------------------------------------//
+// ROUTES------------------------------------//
 module.exports = router;

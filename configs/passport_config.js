@@ -8,16 +8,16 @@ const bcrypt = require("bcrypt");
 const User = require("../models/users");
 
 //-------------------------------------------------END OF
-//IMPORTS---------------------------------------------//
+// IMPORTS---------------------------------------------//
 
 //----------------------------------------------GOOGLE OAUTH
-//STRATEGY-----------------------------------------//
+// STRATEGY-----------------------------------------//
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://main-cu-coders.herokuapp.com/auth/google/redirect",
+      callbackURL: "https://cucoders.herokuapp.com/auth/google/redirect",
     },
     (accessToken, refreshToken, profile, done) => {
       const email = sanitize(profile.emails[0].value);
@@ -48,21 +48,21 @@ passport.use(
   )
 );
 //-------------------------------------END OF GOOGLE OAUTH
-//STRATEGY-----------------------------------//
+// STRATEGY-----------------------------------//
 
 //----------------------------------------- GITHUB
-//STRATEGY------------------------------------------//
+// STRATEGY------------------------------------------//
 
 passport.use(
   new GitHubStrategy(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "https://main-cu-coders.herokuapp.com/auth/github/redirect",
+      callbackURL: "https://cucoders.herokuapp.com/auth/github/redirect",
       scope: ["user:email"],
     },
     (accessToken, refreshToken, profile, done) => {
-      //console.log(profile);
+      // console.log(profile);
       const email = sanitize(profile.emails[0].value);
       User.findOne({ email }).then((oldUser) => {
         if (oldUser) {
@@ -92,10 +92,10 @@ passport.use(
 );
 
 //--------------------------------------END OF GITHUB
-//STRATEGY----------------------------------------//
+// STRATEGY----------------------------------------//
 
 //-------------------------------------------LOCAL
-//STRATEGY-------------------------------------------//
+// STRATEGY-------------------------------------------//
 passport.use(
   new LocalStrategy(
     { usernameField: "email", passwordField: "password", session: true },
@@ -141,9 +141,9 @@ passport.use(
   )
 );
 //--------------------------------------------------END  OF LOCAL
-//STRATEGY----------------------------------------//
+// STRATEGY----------------------------------------//
 //------------------------------------------------SERIALIZERS AND
-//DESERIALIZERS-----------------------------------//
+// DESERIALIZERS-----------------------------------//
 passport.serializeUser((id, done) => {
   done(null, id);
 });
@@ -156,4 +156,4 @@ passport.deserializeUser((id, done) => {
   });
 });
 //------------------------------------------END OF SERIALIZERS AND
-//DESERIALIZERS----------------------------------//
+// DESERIALIZERS----------------------------------//

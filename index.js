@@ -11,15 +11,16 @@ const admin_routes = require("./routes/admin_routes");
 const contactUsRoutes = require("./routes/contactForm_routes");
 const forgetPasswordRoutes = require("./routes/forgotPassword_routes");
 const jobRoutes = require("./routes/job_routes");
+const projectRoutes = require("./routes/projectForm_routes");
 const cors = require("cors");
 const passport = require("passport");
 // const csrf = require("csurf");
 // const hbs = require("hbs");
 //-----------------------------------------------END OF
-//IMPORTS---------------------------------------//
+// IMPORTS---------------------------------------//
 
 //-------------------------------------------DATABASE CONNECTION
-//SETUP----------------------------------------//
+// SETUP----------------------------------------//
 // const csrfProtection = csrf({ cookie: true });
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -61,7 +62,7 @@ app.use(
 );
 
 //----------------------------------------END OF DATABASE CONNECTION
-//SETUP----------------------------------------//
+// SETUP----------------------------------------//
 
 //---------------------------------------------------MIDDLEWARES-------------------------------------------------//
 
@@ -84,7 +85,7 @@ app.set("views", path.join(__dirname, "./templates/pages"));
 app.set("view engine", "hbs");
 app.disable("x-powered-by");
 //------------------------------------------------END OF
-//MIDDLEWARES--------------------------------------------//
+// MIDDLEWARES--------------------------------------------//
 
 //-----------------------------------------------------ROUTINGS-------------------------------------------------//
 app.use("/api/", api_routes);
@@ -93,8 +94,9 @@ app.use("/auth/", auth_routes);
 app.use("/admin/", admin_routes);
 app.use("/contact-us", contactUsRoutes);
 app.use("/forget", forgetPasswordRoutes);
+app.use("/projects/", projectRoutes);
 app.get("/form-token", (req, res) => {
   res.json({ formToken: "sample token" });
 });
 //---------------------------------------------------END OF
-//ROUTINGS--------------------------------------------//
+// ROUTINGS--------------------------------------------//
