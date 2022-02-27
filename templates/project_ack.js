@@ -1,12 +1,11 @@
 "use strict";
 exports.getTemplate = (userEmail, name) => {
   const message = {
-    from : process.env.EMAIL_SENDER,
-    to : userEmail,
-    subject : "CU-Chapter Project Submission",
-    text : `Dear ${
-        name},\n\nThank you for trusting us. We will get back to you soon.\n\nRegards,\nTeam`,
-    html : `<!DOCTYPE html>
+    from: process.env.EMAIL_SENDER,
+    to: userEmail,
+    subject: "CU-Chapter Project Submission",
+    text: `Dear ${name},\n\nThank you for trusting us. We will get back to you soon.\n\nRegards,\nTeam`,
+    html: `<!DOCTYPE html>
         <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
         
         <head>
@@ -174,8 +173,7 @@ exports.getTemplate = (userEmail, name) => {
                                                                     <td style="padding-bottom:10px;padding-left:25px;padding-right:10px;padding-top:45px;">
                                                                         <div style="font-family: sans-serif">
                                                                             <div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #61697a; line-height: 1.2; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-                                                                                <p style="margin: 0; font-size: 14px;">Hi ${
-        name},</p>
+                                                                                <p style="margin: 0; font-size: 14px;">Hi ${name},</p>
                                                                             </div>
                                                                         </div>
                                                                     </td>

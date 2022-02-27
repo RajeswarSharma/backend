@@ -1,42 +1,42 @@
 "use strict";
 const mongoose = require("mongoose");
 const resourcesSchema = mongoose.Schema({
-  imageSrc : {
-    type : String,
-    require : true,
-    trim : true,
+  imageSrc: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  imageId : {
-    type : String,
-    require : true,
-    trim : true,
+  imageId: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  title : {
-    type : String,
-    require : true,
-    trim : true,
+  title: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  subtitle : {
-    type : String,
-    require : true,
-    trim : true,
+  subtitle: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  resources : {
-    type : String,
-    require : true,
+  resources: {
+    type: String,
+    require: true,
   },
-  resourcesId : {
-    type : String,
+  resourcesId: {
+    type: String,
   },
-  description : {
-    type : String,
-    require : true,
-    trim : true,
+  description: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  category : {
-    type : String,
-    require : true,
-    enum : [
+  category: {
+    type: String,
+    require: true,
+    enum: [
       "DSA",
       "CP",
       "web-development",
@@ -56,7 +56,7 @@ const resourcesSchema = mongoose.Schema({
 //----------------------------------DB
 // MIDDLEWARES-----------------------------------------//
 // For invalid Date range
-resourcesSchema.pre("save", async function(next) {
+resourcesSchema.pre("save", async function (next) {
   const uploadDate = this.date_start;
   const date = this.date.now();
   if (date > uploadDate) {

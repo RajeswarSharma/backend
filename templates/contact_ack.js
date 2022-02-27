@@ -1,14 +1,12 @@
 "use strict";
 exports.getTemplate = (userEmail, subject, name) => {
   const message = {
-    from : process.env.EMAIL_SENDER,
-    to : userEmail,
-    subject : "CU-Chapter-Acknowledgement mail",
-    text : `
-    Thank you for writing to us. We have received your message about ${
-        subject} and will get back to you within 2-3 working days.`,
-    html :
-        `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    from: process.env.EMAIL_SENDER,
+    to: userEmail,
+    subject: "CU-Chapter-Acknowledgement mail",
+    text: `
+    Thank you for writing to us. We have received your message about ${subject} and will get back to you within 2-3 working days.`,
+    html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -293,8 +291,7 @@ exports.getTemplate = (userEmail, subject, name) => {
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 25px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
 											<div style="color:#61697a;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:25px;">
 												<div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; color: #61697a; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 14px;">
-													<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">Hi ${
-            name},</p>
+													<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">Hi ${name},</p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -310,8 +307,7 @@ exports.getTemplate = (userEmail, subject, name) => {
 												<div class="txtTinyMce-wrapper" style="line-height: 1.5; font-size: 12px; color: #393d47; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 18px;">
 													<p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">Hi there, We hope you are safe during these uncertain and challenging times.</p>
 													<p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">&nbsp;</p>
-													<p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">Thank you very much for writing to us. We have received your message on the subject of ${
-            subject}.&nbsp;</p>
+													<p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">Thank you very much for writing to us. We have received your message on the subject of ${subject}.&nbsp;</p>
 													<p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">&nbsp;</p>
 												</div>
 											</div>

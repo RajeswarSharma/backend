@@ -8,8 +8,8 @@ exports.addTeam = async (req, res, secure_url, public_id) => {
   const instagram = sanitize(req.body.instagram);
   const github = sanitize(req.body.github);
   const newTeam = new team({
-    profileImage : secure_url,
-    publicId : public_id,
+    profileImage: secure_url,
+    publicId: public_id,
     fullname,
     role,
     linkedin,
@@ -17,7 +17,7 @@ exports.addTeam = async (req, res, secure_url, public_id) => {
     github,
   });
   await newTeam.save();
-  res.json({success : true, message : "new team member added"});
+  res.json({ success: true, message: "new team member added" });
 };
 
 // exports.getTeam = async (res) => {
