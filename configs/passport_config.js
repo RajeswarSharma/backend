@@ -17,7 +17,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://main-cu-coders.herokuapp.com/auth/google/redirect",
+      callbackURL: "https://cucoders.herokuapp.com/auth/google/redirect",
     },
     (accessToken, refreshToken, profile, done) => {
       const email = sanitize(profile.emails[0].value);
@@ -58,7 +58,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "https://main-cu-coders.herokuapp.com/auth/github/redirect",
+      callbackURL: "https://cucoders.herokuapp.com/auth/github/redirect",
       scope: ["user:email"],
     },
     (accessToken, refreshToken, profile, done) => {

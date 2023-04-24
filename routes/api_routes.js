@@ -2,13 +2,14 @@
 const express = require("express");
 const db_apis = require("../controllers/event_db_apis");
 const teamDBApis = require("../controllers/teamDBApis");
+const resourcesDBApis = require("../controllers/resources_db_apis");
 const router = express.Router();
 
 // Public API routes
 
-router.get("/upcomming-events", async (req, res) => {
+router.get("/upcoming-events", async (req, res) => {
   try {
-    const data = await db_apis.read_upcomming_events(req, res);
+    const data = await db_apis.read_upcoming_events(req, res);
     res.json(data);
   } catch (err) {
     console.log(err);
@@ -33,14 +34,32 @@ router.get("/past-events", async (req, res) => {
   }
 });
 
+router.get("/team", async (req, res) => {
+  try {
+      const data = await teamDBApis.getTeam();
+      res.json(data);
+  } catch (err) {
+      res.json({ success: false, message: "Internal server error "});
+      console.log(err);
+  }
+});
+
 // For Future "If events are organized by cu"
 // router.get('our-events',(req,res)=>{
 // })
-router.get("/team", async (req, res) => {
+// router.get("/team", async (req, res) => {
+//   try {
+//     await teamDBApis.getTeam(res);
+//   } catch (error) {
+//     res.json({ success: false, message: "Internal server error" });
+//   }
+// });
+
+router.get("/resources", async(req, res) => {
   try {
-    await teamDBApis.getTeam(res);
+    await resourcesDBApis.getResources(res);
   } catch (error) {
-    res.json({ success: false, message: "Internal server error" });
+    res.json( {success: false, message: "Internal server error" });
   }
 });
 
