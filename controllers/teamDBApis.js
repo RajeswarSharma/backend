@@ -20,7 +20,16 @@ exports.addTeam = async (req, res, secure_url, public_id) => {
   res.json({ success: true, message: "new team member added" });
 };
 
-exports.getTeam = async (res) => {
-  const teamData = await team.find();
-  res.json({ success: true, data: teamData });
+// exports.getTeam = async (res) => {
+//   const teamData = await team.find();
+//   res.json({ success: true, data: teamData });
+// };
+
+exports.getTeam = async () => {
+  try {
+    const data = await team.find();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 };

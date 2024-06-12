@@ -11,6 +11,7 @@ const admin_routes = require("./routes/admin_routes");
 const contactUsRoutes = require("./routes/contactForm_routes");
 const forgetPasswordRoutes = require("./routes/forgotPassword_routes");
 const jobRoutes = require("./routes/job_routes");
+const projectRoutes = require("./routes/projectForm_routes");
 const cors = require("cors");
 const passport = require("passport");
 // const csrf = require("csurf");
@@ -93,6 +94,7 @@ app.use("/auth/", auth_routes);
 app.use("/admin/", admin_routes);
 app.use("/contact-us", contactUsRoutes);
 app.use("/forget", forgetPasswordRoutes);
+app.use("/projects/", projectRoutes);
 app.get("/form-token", (req, res) => {
   res.json({ formToken: "sample token" });
 });

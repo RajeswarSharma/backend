@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Add New Member</title>
+    <title>Add New Resources</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
       rel="stylesheet"
@@ -59,42 +59,59 @@
     <div class="testbox">
 
       <form
-        action="./add-team"
+        action="./add-resources"
         method="post"
         enctype="multipart/form-data"
         style="margin-top:5px ;"
       >
-        <h1>Add a new Team member</h1>
+        <h1>Add a new Resources</h1>
         <p>Technology like art is a soaring exercise of the human imagination.</p>
         <hr />
         <div class="item">
-          <p>Fullname</p>
-          <input type="text" name="fullname" />
+          <p>Title</p>
+          <input type="text" name="title" />
         </div>
         <div class="item">
-          <p>Role</p>
-          <input type="text" name="role" />
+          <p>Subtitle</p>
+          <input type="text" name="subtitle" />
         </div>
         <div class="item">
-          <p>Linkedin</p>
-          <input type="text" name="linkedin" />
+          <p>Category</p>
+          <input type="text" name="category" />
         </div>
         <div class="item">
-          <p>Instagram</p>
-          <input type="text" name="instagram" />
+          <p>Cover image</p>
+          <input type="file" name="imageSrc" accept="image/*" />
+        </div>
+        {{!-- <div class="item">
+            <p>Select Category</p>
+            <select>
+                <option value="AIML">AIML</option>
+                <option value="DSA">DSA</option>
+                <option value="CP">CP</option>
+                <option value="languages">languages</option>
+                <option value="Web">Web</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Database">Database</option>
+                <option value="Version">Version</option>
+                <option value="Security">Security</option>
+            </select>
+        </div> --}}
+        <div class="item">
+            <p>Upload Resource</p>
+            <input type="file" name="resources" accept="pdf/*" />
         </div>
         <div class="item">
-          <p>Github</p>
-          <input type="text" name="github" />
-        </div>
-        <div class="item">
-          <p>Profile image</p>
-          <input type="file" name="profileImage" accept="image/*" />
+          <p>Description</p>
+          <div class="details-tiem">
+            <textarea rows="5" name="description"></textarea>
+          </div>
         </div>
         <div class="btn-block">
-          <button type="submit" href="/">Add</button>
+          <button type="submit" href="/">Send</button>
         </div>
       </form>
     </div>
+
   </body>
 </html>
